@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U</title>
+    <link rel="icon" href="https://cdn.glitch.me/0182eb5c-3832-4a09-b97f-8a7a3ac2ef40/profil?v=1727450454190">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- IP Kopyalama Menüsü -->
+        <div class="ip-menu" id="ipMenu">
+            <img src="https://cdn0.iconfinder.com/data/icons/zondicons/20/copy-512.png" alt="Kopyalama İkonu" class="copy-icon">
+            <span id="ipDisplay">IP: 192.168.1.1</span>
+        </div>
+
+        <!-- Üst logo ve başlık -->
+        <img src="https://cdn.glitch.me/0182eb5c-3832-4a09-b97f-8a7a3ac2ef40/profil?v=1727450454190" alt="Ucan Logo" class="logo" id="logo" loop>
+        <h1 class="name">ucan</h1>
+        <p class="subtitle">Edit & Kurgu</p>
+
+        <!-- Sosyal medya menüsü -->
+        <div class="social-menu">
+            <a href="https://youtube.com" target="_blank">
+                <img src="youtube.png" alt="YouTube">
+            </a>
+            <a href="https://discord.com" target="_blank">
+                <img src="discord.png" alt="Discord">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const logo = document.getElementById('logo');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const ipDisplay = document.getElementById('ipDisplay');
+        const ipMenu = document.getElementById('ipMenu');
+
+        // IP kopyalama işlemi
+        ipMenu.addEventListener('click', () => {
+            const originalText = ipDisplay.textContent;
+            navigator.clipboard.writeText(originalText.split("IP: ")[1])
+                .then(() => {
+                    ipDisplay.textContent = "IP adresi kopyalandı!";
+                    setTimeout(() => {
+                        ipDisplay.textContent = originalText;
+                    }, 2000);
+                });
+        });
+    </script>
+</body>
+</html>
